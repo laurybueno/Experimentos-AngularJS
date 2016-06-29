@@ -1,0 +1,80 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="container" ng-app="aplicacao">
+	<div class="header-inner">
+		<h1 style="text-align: center; color: blue">
+			Bem-vindo ao curso de AngularJS!
+		</h1>
+	</div>
+	
+	<div ng-controller="PrimeiroController" class="well">
+		<p>Oi {{nome}}, como vai?</p>
+		
+		<div ng-class="{'panel panel-primary':iniciado, 'panel panel-danger':!iniciado}">
+			<div class="panel-heading">
+				<h3 class="panel-title">Situação do curso</h3>		
+			</div>
+			<div class="panel-body">
+				<p ng-show="iniciado">Curso em andamento.</p>
+				<p ng-hide="iniciado">Curso finalizado.</p>
+				<p ng-if="!iniciado">Aguarde o próximo curso.</p>
+			</div>
+		</div>
+		
+		<br><br>
+		<h3>Alunos cadastrados</h3>
+		<li ng-repeat="aluno in alunos">
+			{{aluno}}
+		</li>
+		
+		<br>
+		
+		<button ng-show="iniciado" ng-click="finalizar()" class="btn btn-danger">
+			Finalizar
+		</button>
+		<button ng-hide="iniciado" ng-click="iniciar()" class="btn btn-success">
+			Iniciar
+		</button>
+		
+		<h3>Nova inscrição no curso</h3>
+		<form name="form_1">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group form-group-default">
+						<label>Nome</label>
+						<input class="form-control" type="text" id="nome_aluno" name="nome_aluno" ng-model="nome_aluno" ng-readonly="!iniciado">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<button ng-click="submeter()" class="btn btn-primary" ng-disabled="!iniciado">
+						Adicionar
+					</button>
+				</div>
+			</div>
+		</form>
+		
+	</div>
+
+	<div class="container-fluid container-fluid-lg footer">
+		<div class="copyright sm-text-center">
+			<p class="small no-margin pull-left sm-pull-reset">
+				<span class="hint-text">Eu sou um texto chato de copyright.</span>
+			</p>
+		</div>
+	</div>
+	
+	<script src="scripts/libs/angular.min.js"></script>
+	<script src="scripts/app.js"></script>
+	<script src="scripts/primeiro-controller.js"></script>
+	
+</body>
+
+</html>
