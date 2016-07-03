@@ -40,9 +40,26 @@
 		</div>
 		<br>
 		<h3>Alunos cadastrados</h3>
-		<li ng-repeat="aluno in alunos | filter : filtro">
-			{{aluno}}
-		</li>
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<tr>
+					<th>
+						Nome
+					</th>
+					<th>
+						Idade
+					</th>
+				</tr>
+				<tr ng-repeat="aluno in alunos | filter : filtro">
+					<td>
+						{{aluno['nome']}}
+					</td>
+					<td>
+						{{aluno['idade']}}
+					</td>
+				</tr>
+			</table>
+		</div>
 
 		<br>
 
@@ -52,7 +69,7 @@
 		<button ng-hide="iniciado" ng-click="iniciar()" class="btn btn-success">
 			Iniciar
 		</button>
-				
+
 		<h3>Nova inscrição no curso</h3>
 		<form name="form_1">
 			<div class="row">
@@ -60,6 +77,12 @@
 					<div class="form-group form-group-default">
 						<label>Nome</label>
 						<input class="form-control" type="text" id="nome_aluno" name="nome_aluno" ng-model="nome_aluno" ng-readonly="!iniciado" ng-minlength="3">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group form-group-default">
+						<label>Idade</label>
+						<input class="form-control" type="number" id="idade_aluno" name="idade_aluno" ng-model="idade_aluno" ng-readonly="!iniciado" ng-minlength="1">
 					</div>
 				</div>
 			</div>
