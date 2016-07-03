@@ -1,4 +1,4 @@
-angular.module('aplicacao').controller('PrimeiroController', function($scope){
+angular.module('aplicacao').controller('PrimeiroController', function($scope, $filter){
 
 	$scope.nome = 'Laury Bueno';
 	var nome = 'outra coisa';
@@ -19,6 +19,16 @@ angular.module('aplicacao').controller('PrimeiroController', function($scope){
 
 	$scope.hoje = new Date();
 
+	$scope.filtroNome = function(){
+		$scope.ordenarPorNome = !$scope.ordenarPorNome;
+		$scope.alunos = $filter('orderBy')($scope.alunos, 'nome', $scope.ordenarPorNome);
+	}
+
+	$scope.filtroIdade = function(){
+		$scope.ordenarPorIdade = !$scope.ordenarPorIdade;
+		$scope.alunos = $filter('orderBy')($scope.alunos, 'idade', $scope.ordenarPorIdade);
+	}
+
 
 	$scope.submeter = function(){
 		if($scope.form_1.$valid){
@@ -29,7 +39,6 @@ angular.module('aplicacao').controller('PrimeiroController', function($scope){
 		} else {
 			alert('Preencha o nome corretamente.');
 		}
-
 	};
 
 });
