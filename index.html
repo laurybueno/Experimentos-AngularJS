@@ -97,6 +97,15 @@
 
 	</div>
 
+	<div class="well" ng-controller="PrevisaoTempoController">
+		<h3>Demonstração do ng-resource</h3>
+		<h3>Previsão do tempo</h3>
+		<h4>São Paulo, Brasil</h4>
+		<h4>Local: {{tempo.name}}</h4>
+		<h4>Temperatura: {{tempo.main.temp}} ºC</h4>
+		<h4>Mínima: {{tempo.main.temp_min}} ºC e Máxima: {{tempo.main.temp_max}} ºC</h4>
+	</div>
+
 	<div class="container-fluid container-fluid-lg footer">
 		<div class="copyright sm-text-center">
 			<p class="small no-margin pull-left sm-pull-reset">
@@ -106,8 +115,10 @@
 	</div>
 
 	<script src="scripts/libs/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.5.7/angular-resource.min.js"></script>
 	<script src="scripts/app.js"></script>
 	<script src="scripts/primeiro-controller.js"></script>
+	<script src="scripts/previsao-tempo-controller.js"></script>
 
 </body>
 
